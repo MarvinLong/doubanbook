@@ -33,7 +33,7 @@ DOWNLOAD_DELAY = 3
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
-#COOKIES_ENABLED = False
+COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
@@ -53,8 +53,8 @@ DOWNLOAD_DELAY = 3
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-    'doubanbook.middlewares.MyCustomDownloaderMiddleware': 543,
-    'scrapy.downloadermiddleware.useragent.UserAgentMiddleware' : None
+    'doubanbook.useragent.UserAgent': 400,
+    'scrapy.downloadermiddleware.useragent.UserAgentMiddleware' : None,
 }
 
 # Enable or disable extensions

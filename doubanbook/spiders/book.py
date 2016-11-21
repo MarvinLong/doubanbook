@@ -10,7 +10,7 @@ class doubanbookspider(CrawlSpider):
     allowed_domains = ['book.douban.com/tag/']
     start_urls = ['http://book.douban.com/tag/文学?start=0&type=T']
     ruels = (
-        Rule(LinkExtractor(allow=u'/tag/文学?start=*&type=T'), callback='parse_item', follow=True)
+        Rule(LinkExtractor(allow=u'/tag/'), callback='parse_item', follow=True),
         #Rule(LinkExtractor(allow=u'/tag/科技/'), callback='parse_item', follow=True)
     )
 
@@ -27,6 +27,7 @@ class doubanbookspider(CrawlSpider):
     def get_name(self, response, item):
         book_name = response.xpath('//h2/a/@title').extract()
         for book in book_name:
+            # print "********Current book:%s************" % book
             item['book_name'] = book
 
     def get_author(self, response, item):
