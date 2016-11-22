@@ -65,9 +65,14 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'doubanbook.pipelines.SomePipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'doubanbook.pipelines.DoubanbookPipeline': 300,
+}
+
+MONGODB_SERVER = 'localhost'
+MONGODB_PORT = 27017
+MONGODB_DB = 'douban'
+MONGODB_COLLECTION = 'doubanbook'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
